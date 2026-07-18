@@ -1,0 +1,161 @@
+# ~/.config/ghostty/config
+
+# Full option reference: https://ghostty.org/docs/config/reference
+# See all valid values any time with: ghostty +show-config --default --docs
+
+# ── FONT ─────────────────────────────────────────────────────────────
+# Sets the terminal's font family. Ghostty looks this up by name from
+# fonts installed on your system (fc-list on Linux will show you what's
+# available). Repeat this key to add fallback fonts for glyphs missing
+# from the primary font (e.g. a Nerd Font for icons/glyphs).
+#
+# Monaspace is GitHub's coding superfamily (ligatures + 5 matched
+# styles: Neon, Argon, Xenon, Radon, Krypton). The Nerd Font-patched
+# build is packaged separately and is internally named "Monaspice"
+# (with an "i") rather than "Monaspace" - the family name below must
+# match what's actually embedded in the font file, not the package
+# name. On Arch:
+#   pacman -S otf-monaspace-nerdfonts
+# Each weight has its own two-letter code: Ne/Ar/Xe/Ra/Kr.
+font-family = MonaspiceNe Nerd Font
+
+# Fallback font, used for any glyph Monaspice doesn't cover. JetBrains
+# Mono Nerd Font is a solid, widely-compatible choice for prompt icons,
+# file-type glyphs (eza/lsd), etc. On Arch:
+#   pacman -S ttf-jetbrains-mono-nerd
+font-family = JetBrainsMono Nerd Font
+
+# You can list every font family Ghostty can actually see with:
+#   ghostty +list-fonts
+# and cross-check what's installed with:
+#   fc-list | grep -i monaspice
+#   fc-list | grep -i jetbrains
+
+# Font size in points (not pixels). Uncomment and adjust to taste.
+# font-size = 12
+
+# Enables programming ligatures like -> => != if the font supports them
+# (Monaspace and many Nerd Fonts do). Comment out or set to "-calt" to
+# disable if you don't like ligatures.
+font-feature = calt
+
+# ── APPEARANCE ───────────────────────────────────────────────────────
+# Blurs whatever is behind the window when background-opacity < 1.
+# macos-glass-regular/macos-glass-clear are native macOS 26+ glass
+# effects; on Linux use `true` or an integer blur intensity instead.
+background-blur = macos-glass-regular
+
+# Background opacity (1 = fully opaque, 0 = fully transparent).
+background-opacity = 0.9
+
+# Which effects accompany the terminal "bell" (BEL character).
+# audio = plays a sound, border = flashes a colored border.
+bell-features = audio,border
+
+# Controls what color bold text is drawn in. "bright" uses the theme's
+# bright color variants for bold text instead of the regular palette.
+bold-color = bright
+
+# Color of the text cursor itself.
+cursor-color = #f2d5cf
+
+# Cursor opacity, 0 (invisible) to 1 (fully solid).
+cursor-opacity = 0.9
+
+# Color of text *underneath* the cursor (so it stays legible when the
+# cursor overlaps a character).
+cursor-text = #303446
+
+# Named color theme to load. Run `ghostty +list-themes` to see all
+# built-in options.
+theme = Catppuccin Frappe
+
+# Preference for how windows are decorated (titlebar/borders). "auto"
+# lets Ghostty pick the native-looking option for your desktop.
+# Uncomment if you want to force client-side decorations on Linux:
+# window-decoration = auto
+
+# Follow the OS light/dark setting for window chrome (titlebar etc).
+window-theme = system
+
+# ── WINDOW ───────────────────────────────────────────────────────────
+# Initial window size in terminal cells (columns x rows), not pixels.
+# Both values must be set together or neither takes effect.
+window-height = 25
+window-width = 90
+
+# If true, new windows reuse the previously-focused window's working
+# directory instead of falling back to `working-directory` below.
+window-inherit-working-directory = false
+
+# Where new terminals start. "home" = your home directory. Could also
+# be "inherit" (working dir of the process that launched Ghostty) or
+# an absolute/`~/`-relative path.
+working-directory = home
+
+# ── CLIPBOARD ────────────────────────────────────────────────────────
+# Whether programs inside the terminal (via OSC 52) can read your
+# system clipboard. "allow" permits it without prompting; "ask" is
+# safer if you run untrusted scripts/SSH into unknown machines.
+clipboard-read = allow
+
+# Text selected in the terminal is highlighted with these colors.
+selection-background = #f2d5cf
+
+# ── TERMINAL BEHAVIOR ────────────────────────────────────────────────
+# The TERM environment variable value Ghostty reports to programs.
+# xterm-256color is the safe/compatible choice, especially handy over
+# SSH to older servers that don't recognize "xterm-ghostty".
+term = xterm-256color
+
+# Send a desktop notification when a long-running command finishes,
+# but only if the terminal window isn't currently focused. Requires
+# shell integration (see below) or a shell that emits OSC 133.
+notify-on-command-finish = unfocused
+
+# Allows programs to query the window title via CSI 21 t. Off by
+# default for security (a malicious title + escape sequence could be
+# abused); only enable if something you use actually needs it.
+title-report = true
+
+# ── EXTRAS ────────────────────────────────────────────────────────────
+# Shell integration adds working-directory inheritance, prompt marking
+# (jump between prompts), better resize repainting, and safer "close
+# without confirmation at an idle prompt" behavior. "detect" auto-picks
+# the right integration for bash/zsh/fish/elvish/nushell.
+# shell-integration = detect
+
+# How many bytes of scrollback to keep per terminal (default is a few
+# tens of MB). Bump this up if you like scrolling back through long
+# build logs.
+# scrollback-limit = 100000000
+
+# Hides the mouse cursor as soon as you start typing; it reappears on
+# any mouse movement or click. Nice for reducing visual clutter.
+# mouse-hide-while-typing = true
+
+# Require confirmation before pasting text Ghostty thinks looks unsafe
+# (e.g. multi-line text that could hide a command). Protects against
+# "copy/paste attacks" from untrusted websites.
+# clipboard-paste-protection = true
+
+# Ask before closing a terminal that has a running process, so you
+# don't accidentally kill a long-running job with an errant Cmd/Ctrl+W.
+# confirm-close-surface = true
+
+# Automatically balances any leftover pixel padding evenly on all
+# sides instead of dumping it all in the bottom-right corner.
+# window-padding-balance = true
+
+# Padding (in points) between the terminal grid and the window edges.
+# window-padding-x = 4
+# window-padding-y = 4
+
+# Multiplier for how far the terminal scrolls per mouse-wheel tick.
+# Handy if scrolling feels too fast/slow with a particular mouse.
+# mouse-scroll-multiplier = 3
+
+# Minimum contrast ratio enforced between foreground/background text
+# colors, to avoid unreadable (or literally invisible) text from a
+# poorly-chosen theme or color escape sequence.
+# minimum-contrast = 1.1
