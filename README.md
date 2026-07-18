@@ -4,7 +4,7 @@ Welcome to the **ultimate, hassle-free** installation guide for your favorite ro
 Setting up Arch Linux from scratch usually means spending time manually partitioning or navigating around menus and installing your everyday tools afterward. This repo eliminates most of that friction:
 
 - **Pre-configured** `archinstall` **files** — the configuration plugs directly into the archinstall script, so you don't have to click through and configure each menu option manually. Maybe review the settings and go.
-- **Popular software included out of the box** — common tools like 7-Zip, VLC, and other everyday utilities are already part of the setup, so you skip the post-install routine of hunting down and installing them one by one.
+- **Popular software included out of the box** — over 100 of the most used linux tools and other everyday utilities are already part of the setup, so you skip the post-install routine of hunting down and installing them one by one.
 - **Faster, more consistent installs** — whether you're setting up a new machine or reinstalling, you get a predictable result without repeating the same manual steps every time.
 
 In short: instead of treating every install as a fresh, from-scratch configuration process, you can use this repo as a starting template and get to a usable system much faster.
