@@ -68,7 +68,7 @@ cursor-text = #303446
 
 # Named color theme to load. Run `ghostty +list-themes` to see all
 # built-in options.
-theme = Catppuccin Frappe
+theme = Andromeda
 
 # Preference for how windows are decorated (titlebar/borders). "auto"
 # lets Ghostty pick the native-looking option for your desktop.
